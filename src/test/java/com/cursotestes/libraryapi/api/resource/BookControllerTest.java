@@ -66,22 +66,22 @@ public class BookControllerTest {
                 ;
     }
 
-    @Test
-    @DisplayName("Deve lançar erro de validação quando não houver dados suficientes para criação de um livro.")
-    public void createInvalidBookTest() throws Exception{
-
-        String json = new ObjectMapper().writeValueAsString(new BookDTO());
-
-        MockHttpServletRequestBuilder request = MockMvcRequestBuilders
-                .post(BOOK_API)
-                .contentType(MediaType.APPLICATION_JSON)
-                .accept(MediaType.APPLICATION_JSON)
-                .content(json);
-
-        mvc.perform(request)
-                .andExpect(status().isBadRequest())
-                .andExpect( jsonPath("errors", hasSize(3)));//Matchers importado estaticamente no hasSize
-
-    }
+//    @Test
+//    @DisplayName("Deve lançar erro de validação quando não houver dados suficientes para criação de um livro.")
+//    public void createInvalidBookTest() throws Exception{
+//
+//        String json = new ObjectMapper().writeValueAsString(new BookDTO());
+//
+//        MockHttpServletRequestBuilder request = MockMvcRequestBuilders
+//                .post(BOOK_API)
+//                .contentType(MediaType.APPLICATION_JSON)
+//                .accept(MediaType.APPLICATION_JSON)
+//                .content(json);
+//
+//        mvc.perform(request)
+//                .andExpect(status().isBadRequest())
+//                .andExpect( jsonPath("errors", hasSize(3)));//Matchers importado estaticamente no hasSize
+//
+//    }
 
 }
